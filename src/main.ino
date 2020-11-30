@@ -1,25 +1,20 @@
-#include "MoistureSensor.h"
+#include "src/drivers/MoistureSensor.h"
 
 const unsigned int LED = 13;
 
 MoistureSensor moistureSensor = MoistureSensor(0);
 
-void setup() {
-  pinMode(LED, OUTPUT);
-  Serial.begin(9600);
+void setup()
+{
+    pinMode(LED, OUTPUT);
+    Serial.begin(9600);
 }
 
-void loop() {
-int moisture_val;
-moisture_val = analogRead(0); //connect sensor to Analog 0 
-Serial.println(moisture_val);
-Serial.println(moistureSensor.is_dry(moisture_val) ? "dry" :
- moistureSensor.is_water(moisture_val) ? "water" :
- moistureSensor.is_wet(moisture_val) ?  "wet" : "not defined"
- ); 
-delay(500);
+void loop()
+{
+    int moistureVal;
+    moistureVal = analogRead(0); //connect sensor to Analog 0
+    Serial.println(moistureVal);
+    Serial.println(moistureSensor.isDry(moistureVal) ? "dry" : moistureSensor.isWater(moistureVal) ? "water" : moistureSensor.isWet(moistureVal) ? "wet" : "not defined");
+    delay(500);
 }
-
-
-
-
