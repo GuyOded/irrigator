@@ -14,13 +14,13 @@ class MoistureSensor
 {
 public:
     MoistureSensor(int analogInput);
-    bool isDry(int moistureVal);
-    bool isWater(int moistureVal);
-    bool isWet(int moistureVal);
+    bool isDry();
+    bool isWater();
+    bool isWet();
     int readValue();
 
 private:
-    int moistureStep();
+    static const int MOISTURE_LEVEL_INCREMENT = (MoistureLevel::dry - MoistureLevel::water) / 3;
     int m_analogInput;
 };
 
