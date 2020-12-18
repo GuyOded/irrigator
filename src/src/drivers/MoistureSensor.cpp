@@ -6,24 +6,19 @@ MoistureSensor::MoistureSensor(int analogInput)
     m_analogInput = analogInput;
 }
 
-int MoistureSensor::moistureStep()
+bool MoistureSensor::isDry()
 {
-    return (MoistureLevel::dry - MoistureLevel::water) / 3;
+    return readValue() >= (MoistureLevel::dry - MOISTURE_LEVEL_INCREMENT);
 }
 
-bool MoistureSensor::isDry(int moistureVal)
+bool MoistureSensor::isWater()
 {
-    return moistureVal >= MoistureLevel::dry - moistureStep();
+    return readValue() < (MoistureLevel::water + MOISTURE_LEVEL_INCREMENT);
 }
 
-bool MoistureSensor::isWater(int moistureVal)
+bool MoistureSensor::isWet()
 {
-    return moistureVal < (MoistureLevel::water + moistureStep());
-}
-
-bool MoistureSensor::isWet(int moistureVal)
-{
-    return !isDry(moistureVal) && !isWater(moistureVal);
+    return !isDry() && !isWater();
 }
 
 int MoistureSensor::readValue()

@@ -14,6 +14,6 @@ void loop()
 {
     int moistureVal;
     moistureVal = moistureSensor.readValue();
-    Serial.println(moistureSensor.isDry(moistureVal) ? "dry" : moistureSensor.isWater(moistureVal) ? "water" : moistureSensor.isWet(moistureVal) ? "wet" : "not defined");
+    Serial.println(moistureSensor.isDry() ? "dry" : moistureSensor.isWater() ? "water" : moistureSensor.isWet() ? "wet" : "not defined");
     delay(500);
 }
