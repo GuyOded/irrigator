@@ -8,12 +8,12 @@ MoistureSensor::MoistureSensor(int analogInput)
 
 bool MoistureSensor::isDry()
 {
-    return readValue() >= (MoistureLevel::dry - MOISTURE_LEVEL_INCREMENT);
+    return readValue() >= (MoistureLevel::Dry - MOISTURE_LEVEL_INCREMENT);
 }
 
 bool MoistureSensor::isWater()
 {
-    return readValue() < (MoistureLevel::water + MOISTURE_LEVEL_INCREMENT);
+    return readValue() < (MoistureLevel::Water + MOISTURE_LEVEL_INCREMENT);
 }
 
 bool MoistureSensor::isWet()

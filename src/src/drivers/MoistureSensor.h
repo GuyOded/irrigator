@@ -5,8 +5,8 @@ namespace MoistureLevel
 {
     enum MoistureLevel
     {
-        dry = 587,
-        water = 309
+        Dry = 587,
+        Water = 309
     };
 }
 
@@ -20,7 +20,7 @@ public:
     int readValue();
 
 private:
-    static const int MOISTURE_LEVEL_INCREMENT = (MoistureLevel::dry - MoistureLevel::water) / 3;
+    static const int MOISTURE_LEVEL_INCREMENT = (MoistureLevel::Dry - MoistureLevel::Water) / 3;
     int m_analogInput;
 };
 
