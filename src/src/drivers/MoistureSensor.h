@@ -18,8 +18,10 @@ public:
     bool isWater();
     bool isWet();
     int readValue();
+    bool isDisconnected();
 
 private:
+    static const int DISCONNECTED_VALUE = 1023;
     static const int MOISTURE_LEVEL_INCREMENT = (MoistureLevel::dry - MoistureLevel::water) / 3;
     int m_analogInput;
 };

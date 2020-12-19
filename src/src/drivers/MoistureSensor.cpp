@@ -25,3 +25,8 @@ int MoistureSensor::readValue()
 {
     return analogRead(m_analogInput);
 }
+
+bool MoistureSensor::isDisconnected()
+{
+    return readValue() >= DISCONNECTED_VALUE;
+}
